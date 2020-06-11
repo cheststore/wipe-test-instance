@@ -13,3 +13,13 @@ back to the defaults.
 ```sh
 $ sudo CHESTSTORE_CONTAINER=$CHESTSTORE_DOCKER_PS_HASH POSTGRES_CONTAINER=$POSTGRES_DOCKER_PS_HASH REDIS_CONTAINER=$REDIS_DOCKER_PS_HASH sh wipe.sh
 ```
+
+### Add to crontab
+
+```sh
+$ crontab -e
+# ...
+# ...
+# m h  dom mon dow   command
+0 * * * * sudo CHESTSTORE_CONTAINER=$CHESTSTORE_DOCKER_PS_HASH POSTGRES_CONTAINER=$POSTGRES_DOCKER_PS_HASH REDIS_CONTAINER=$REDIS_DOCKER_PS_HASH sh /home/ubuntu/wipe-test-instance/wipe.sh
+```
