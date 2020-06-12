@@ -16,6 +16,8 @@ $ sudo CHESTSTORE_CONTAINER=$CHESTSTORE_DOCKER_PS_HASH POSTGRES_CONTAINER=$POSTG
 
 ### Add to crontab
 
+The following will execute the job hourly at the top of the hour.
+
 ```sh
 $ sudo crontab -e
 # ...

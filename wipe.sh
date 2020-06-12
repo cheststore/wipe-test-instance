@@ -12,3 +12,8 @@ sudo docker exec -it $CHESTSTORE_CONTAINER rm -rf ./tmp/git
 
 sudo docker cp ./cheststore.backup $POSTGRES_CONTAINER:/tmp/cheststore.backup
 sudo docker exec -e PGPASSWORD="cheststore" -it $POSTGRES_CONTAINER pg_restore -U postgres -d cheststore -a /tmp/cheststore.backup
+
+# assumes the instance is getting reset every hour, so make sure
+# crontab is setup appropriately for hourly execution
+NEXT_REFRESH=$(date -d '+1 hour' '+%F %T')
+sudo docker exec -it $POSTGRES_CONTAINER psql -d postgres -U postgres -c "INSERT INTO app_banners (banner_html) values ('This instance will be reset at <strong>$NEXT_REFRESH UTC</strong>.')"
