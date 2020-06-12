@@ -11,7 +11,7 @@ back to the defaults.
 ## Execute
 
 ```sh
-$ # update environment variables in wipe.sh to correspond to docker process hashes
+$ # update variables in `wipe.sh` to correspond to docker process hashes
 $ sudo sh wipe.sh
 ```
 
@@ -20,6 +20,7 @@ $ sudo sh wipe.sh
 The following will execute the job hourly at the top of the hour.
 
 ```sh
+$ # update variables in `wipe.sh` to correspond to docker process hashes
 $ sudo crontab -e
 # ...
 # ...
