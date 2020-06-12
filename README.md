@@ -11,7 +11,8 @@ back to the defaults.
 ## Execute
 
 ```sh
-$ sudo CHESTSTORE_CONTAINER=$CHESTSTORE_DOCKER_PS_HASH POSTGRES_CONTAINER=$POSTGRES_DOCKER_PS_HASH REDIS_CONTAINER=$REDIS_DOCKER_PS_HASH sh wipe.sh
+$ # update environment variables in wipe.sh to correspond to docker process hashes
+$ sudo sh wipe.sh
 ```
 
 ### Add to crontab
@@ -23,5 +24,5 @@ $ sudo crontab -e
 # ...
 # ...
 # m h  dom mon dow   command
-0 * * * * CHESTSTORE_CONTAINER=$CHESTSTORE_DOCKER_PS_HASH POSTGRES_CONTAINER=$POSTGRES_DOCKER_PS_HASH REDIS_CONTAINER=$REDIS_DOCKER_PS_HASH sh /home/ubuntu/wipe-test-instance/wipe.sh
+0 * * * * sh /home/ubuntu/wipe-test-instance/wipe.sh
 ```
